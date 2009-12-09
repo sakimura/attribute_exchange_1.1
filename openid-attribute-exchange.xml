@@ -1,0 +1,1026 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
+<!-- ***** File Inclusion ***** -->
+<!-- The parameter value is the name of the file to be included which can also be a URI.
+     In the case of local files the XML_LIBRARY environment variable provides a search
+     path of directories in which the file may be located. See section 4.1.2 of README -->
+<!-- include="n/a" -->
+
+<!-- ***** Rigor Control ***** -->
+<!-- Try to enforce the ID-nits conventions and DTD validity -->
+<?rfc strict="yes" ?>
+
+<!-- ***** Rendering Control ***** -->
+<!-- Put the famous header block on the first page -->
+<?rfc topblock="yes" ?>
+<!-- Include boilerplate from Section 10.4(d) of [1] (Bradner, S., "The Internet Standards
+     Process - Revision 3," October 1996.) -->
+<?rfc iprnotified="no" ?>
+
+<!-- Use anchors as symbolic tags rather than numbers for references -->
+<?rfc symrefs="yes" ?>
+<!-- Sort references according to symbolic tags - irrelevant if symrefs="no" -->
+<?rfc sortrefs="yes" ?>
+
+<!-- Items useful for reviewing document -->
+<!-- Render <cref> information -->
+<?rfc comments="no" ?>
+<!-- If comments is "yes", then render comments inline; otherwise render them in an
+     "Editorial Comments" section" -->
+<?rfc inline="no" ?>
+<!-- Insert editing marks for ease of discussing draft versions.
+     Editing marks are strings such as <29> printed at the beginning of the blank line before
+     each paragrpah of text. -->
+<?rfc editing="no" ?>
+
+<!-- Items useful when using xml2rfc to produce technical documents other than RFCs and I-Ds -->
+<!-- Produce a private memo rather than an RFC or Internet-Draft.
+     The value of the PI is used as the title of the document.
+     Omits the topblock and standard boiler plate when . -->
+<?rfc private="Final" ?>
+<!-- Override the center footer string -->
+<?rfc footer="" ?>
+<!-- Override the leftmost header string -->
+<?rfc header="" ?>
+
+<!-- ***** Table of Contents Control ***** -->
+<!-- Generate a table-of-contents -->
+<?rfc toc="yes" ?>
+<!-- Control whether the word "Appendix" appears in the table of contents. -->
+<?rfc tocappendix="yes" ?>
+<!-- If toc is "yes", then this determines the depth of the table of contents. -->
+<?rfc tocdepth="3" ?>
+<!-- If toc is "yes", then setting this to "yes" will indent subsections in
+     the table-of-contents. -->
+<?rfc tocindent="yes" ?>
+<!-- If toc is "yes", then setting this to "no" will make it a little less compact. -->
+<?rfc tocompact="yes" ?>
+<!-- Affects horizontal spacing in the table-of-content. -->
+<?rfc tocnarrow="yes" ?>
+
+<!-- ***** Format Control ***** -->
+<!-- Automatically force page breaks to avoid widows and orphans (not perfect). -->
+<?rfc autobreaks="yes" ?>
+<!-- Put two spaces instead of one after each colon (":") in txt or nroff files. -->
+<?rfc colonspace="no" ?>
+<!-- When producing a txt/nroff file, try to conserve vertical whitespace
+    (the default value was "no" up to v1.30; from v1.31 the default is the current value
+    of the rfcedstyle PI).
+    Will default to (rfcedstyle) in future. -->
+<?rfc compact="no" ?>
+<!-- If compact is "yes", then you can make things a little less compact by setting this
+     to "no" (the default value is the current value of the compact PI). -->
+<?rfc subcompact="no" ?>
+<!-- An integer hint indicating how many contiguous lines are needed at this point in
+     the output.
+     Can appear as many times as necessary in the source. -->
+<!--  needLines="0" -->
+
+<!-- ***** HTML Specials ***** -->
+<!-- When producing a html file, use the image in this file.  -->
+<?rfc background="" ?>
+<!-- Automatically replaces input sequences such as |*text| by,
+     e.g., <strong>text</strong> in html output. -->
+<?rfc emoticonic="no" ?>
+<!-- Generate mailto: URL, as appropriate. -->
+<?rfc linkmailto="yes" ?>
+<!-- When producing a html file, produce multiple files for a slide show. -->
+<?rfc slides="no" ?>
+<!-- When producing a html file, use the <object> html element with inner replacement content
+     instead of the <img> html element, when a source xml element includes an src attribute. -->
+<?rfc useobject="no" ?>
+
+<!-- ***** Debugging ***** -->
+<!-- Value is a string like "35:file.xml" or just "35" (file name then defaults to the
+     containing file's real name or to the latest linefile specification that changed it) that
+     will be used to override xml2rfc's reckoning of the current input position
+     (right after this PI) for warning and error reporting purposes
+     (line numbers are 1-based)" -->
+<!-- linefile="n/a" -->
+<!-- During processing pass 2, print the value to standard output at that point
+     in processing" -->
+<!-- typeout="n/a" -->
+
+
+
+<!DOCTYPE rfc SYSTEM "rfc2629.dtd" [
+<!ENTITY  version "1.0">
+<!ENTITY  axns "http://openid.net/srv/ax/1.0">
+ ]>
+
+<rfc category="std" ipr="none" docName="openid-attribute-exchange-1_0.xml">
+
+  <front>
+    <title>OpenID Attribute Exchange 1.1 - Draft 01</title>
+    <author initials="D." surname="Hardt" fullname="Dick Hardt">
+      <organization>Sxip Identity</organization>
+      <address>
+        <postal>
+          <street>798 Beatty Street</street>
+          <city>Vancouver</city>
+          <region>BC</region>
+          <code>V6B 2M1</code>
+          <country>CA</country>
+        </postal>
+        <email>dick@sxip.com</email>
+        <uri>http://sxip.com/</uri>
+      </address>
+    </author>
+    <author initials="J." surname="Bufu" fullname="Johnny Bufu">
+      <organization>Sxip Identity</organization>
+      <address>
+        <postal>
+          <street>798 Beatty Street</street>
+          <city>Vancouver</city>
+          <region>BC</region>
+          <code>V6B 2M1</code>
+          <country>CA</country>
+        </postal>
+        <email>johnny@sxip.com</email>
+        <uri>http://sxip.com/</uri>
+      </address>
+    </author>
+    <author initials="J." surname="Hoyt" fullname="Josh Hoyt">
+      <organization>JanRain</organization>
+      <address>
+        <postal>
+          <street>5331 SW Macadam Ave. #375</street>
+          <city>Portland</city>
+          <region>OR</region>
+          <code>97239</code>
+          <country>US</country>
+        </postal>
+        <email>josh@janrain.com</email>
+        <uri>http://janrain.com/</uri>
+      </address>
+    </author>
+    <author initials="N." surname="Sakimura" fullname="Nat Sakimura">
+      <organization>NRI</organization>
+      <address>
+        <postal>
+          <street>Shiodome</street>
+          <city>Tokyo</city>
+          <region>TO</region>
+          <code>100-0044</code>
+          <country>JP</country>
+        </postal>
+        <email>n-sakimura@nri.co.jp</email>
+        <uri>http://www.nri.co.jp/</uri>
+      </address>
+    </author>
+    <date month="December" year="2009"/>
+    <abstract>
+      <t>
+        OpenID Attribute Exchange is an OpenID service extension for
+        exchanging identity information between endpoints. Messages for
+        retrieval and storage of identity information are provided.
+      </t>
+    </abstract>
+  </front>
+
+  <middle>
+    <section title="Terminology">
+      <t>
+        The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL
+        NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and
+        "OPTIONAL" in this document are to be interpreted as described
+        in <xref target="RFC2119"/>.
+      </t>
+      <section title="Definitions and Conventions">
+        <t>
+          <list style="hanging">
+            <t hangText="User:">
+              Also referred to as "End User" or "Subject".
+              A person with a digital identity who participates in
+              OpenID-based identity information exchanges using their
+              client software, typically a web browser.
+            </t>
+            <t hangText="Identity Data:">
+              A property of a digital identity in which the Property
+              Name and Property Value are represented as a name-value
+              pair.
+            </t>
+            <t hangText="Attribute">
+              The base of the information model used to describe the
+              Identity Data, for the purpose of exchanging it.
+            </t>
+            <t hangText="Persona:">
+              A subset of the user's identity data. A user can have
+              multiple personas as part of their identity. For example,
+              a user might have a work persona and a home persona.
+            </t>
+            <t hangText="OpenID Provider:">
+              Also called "OP" or "Server". An OpenID Authentication
+              server on which a Relying Party relies for an assertion
+              that the end user controls an Identifier.
+            </t>
+            <t hangText="Relying Party:">
+              Also called "RP" or "Consumer". A Web application that
+              wants proof that the end user controls an Identifier,
+              and requests identity data associated with the end user.
+            </t>
+          </list>
+        </t>
+        <t>
+          All OpenID Attribute Exchange messages MUST contain the
+          following extension namespace declaration, as specified
+          in the Extensions section of OpenID-Authentication-2.0:
+        </t>
+        <figure>
+          <artwork>
+            <![CDATA[
+openid.ns.<extension_alias>=http://openid.net/srv/ax/1.1
+            ]]>
+          </artwork>
+        </figure>
+        <t>
+          The actual extension namespace alias should be determined
+          on a per-message basis by the party composing the messages,
+          in such a manner as to avoid conflicts between multiple
+          extensions. For the purposes of this document, the extension
+          namespace alias for the attribute exchange service will be "ax".
+        </t>
+      </section>
+    </section>
+    <section title="Overview">
+      <!--
+      Provide a high level of the protocol that lists the fetch and
+      store messages with relative links to those sections
+
+      Document=URL=Message?
+      -->
+      <t>
+        The attribute exchange service extension is identified by the
+        URI "&axns;". This URI MUST be specified in the extension
+        namespace declaration.
+      </t>
+      <t>
+        An attribute is a unit of personal identity information that
+        is identified by a unique URI. It may refer to any kind of
+        information. A reference example of defining attribute types
+        is provided by <xref target="OpenID.axschema"/>.
+      </t>
+      <t>
+        This service extension defines two message types for
+        transferring attributes: fetch (see <xref target="fetch"/>)
+        and store (see <xref target="store"/>). Fetch retrieves
+        attribute information from an OpenID Provider, while store
+        saves or updates attribute information on the OpenID
+        Provider. Both messages originate from the Relying Party
+        and are passed to the OpenID Provider via the user agent
+        as per the OpenID Authentication protocol specification.
+      </t>
+      <t>
+        The request parameters detailed here MUST be sent using the
+        <xref target="OpenID.authentication-2.0"/> extension mechanism.
+      </t>
+    </section>
+    <section title="Information Model">
+      <t>
+        The OpenID Attribute Exchange service extension provides a
+        mechanism for moving identity information between sites, as
+        such its information model is simple:
+        <list>
+          <t>An attribute is associated with a Subject Identifier</t>
+          <t>An attribute has a type identifier and a value</t>
+          <t>An attribute type identifier is a URI</t>
+          <t>An attribute value can be any kind of data.</t>
+        </list>
+      </t>
+      <section title="Subject Identifier" anchor="identifier-definition">
+        <t>
+          An identifier for a set of attributes. It MUST be a URI. The
+          subject identifier corresponds to the end-user identifier in
+          the authentication portion of the messages.  In other words,
+          the subject of the identity attributes in the attribute
+          exchange part of the message is the same as the end-user in
+          the authentication part.  The subject identifier is not
+          included in the attribute exchange.
+        </t>
+      </section>
+      <section title="Attribute Type Identifier" anchor="attribute-name-definition">
+        <t>
+          An attribute type identifier MUST be a URI, which is used
+          for referring to property values.
+        </t>
+        <t>
+          If an attribute type identifier URI can be resolved then it
+          MAY be dereferenced to retrieve a description of the
+          property. OpenID Providers can use the metadata obtained
+          through dereferencing new or unknown attribute types to
+          dynamically assist the user in providing the attribute.
+        </t>
+        <t>
+          This provides for flexibility and extensibility. Flexibility
+          in that both URNs and URLs can be used to refer to property
+          values. Extensibility allows any individual site, or
+          consortium of sites, to define their own attribute types
+          with agreements on the syntax and semantics of their
+          associated attribute values.
+        </t>
+        <t>
+          <xref target="OpenID.axschema"/> outlines an example method
+          of defining new attribute type URIs, and also provides a set
+          of attribute types with their associated metadata schema and
+          data formats.  
+        </t>
+
+      </section>
+      <section title="Attribute Value" anchor="attribute-value-definition">
+        <t>
+          A attribute value MUST be a <xref target="RFC3629">UTF-8</xref>
+          string. In order to comply with the data formats defined by
+          the underlying <xref target="OpenID.authentication-2.0"/>
+          protocol, attribute values MUST NOT contain newlines
+          (UCS codepoint 10, &quot;\n&quot;).
+        </t>
+        <t>
+          OpenID Attribute Exchange can be used to transfer any kind
+          of data. If the data contains newlines, is not a UTF-8 string
+          or it is so desired by the parties transferring the data,
+          the data MUST be encoded to a UTF-8 string without newlines.
+        </t>
+
+        <section title="Attribute-Specific Encodings"
+                 anchor="attribute-specific-encodings">
+          <t>
+            Attribute-specific encodings can be defined using the
+            attribute metadata descriptions and may be applied by
+            the protocol layer above OpenID Attribute Exchange.
+          </t>
+
+          <t>
+            Optionally, attribute-specific encodings may use language
+            tags <xref target="OpenID.value-lang-1.0"/> for
+            localization.
+          </t>
+        </section>
+
+      </section>
+    </section>
+    <section title="Discovery">
+      <t>
+        Discovery of the attribute exchange service extension is
+        achieved via the mechanism described in <xref
+        target="OpenID.authentication-2.0"/>. The attribute exchange
+        namespace "&axns;" SHOULD be listed as an &lt;xrd:Type&gt;
+        child element of the &lt;xrd:Service&gt; element in the XRDS
+        discovery document.
+      </t>
+    </section>
+    <section anchor="fetch" title="Fetch Message">
+      <t>
+        The fetch message is used to retrieve personal identity
+        attributes from an OpenID Provider.
+      </t>
+      <section anchor="fetch_request" title="Fetch Request Format">
+        <t>
+          With the exception of "openid.ax.mode", all of the following
+          request fields are OPTIONAL, though at least one of
+          "openid.ax.required" or "openid.ax.if_available" MUST be
+          specified in the request, and any attribute alias present in a
+          "openid.ax.required" or "openid.ax.if_available" parameter MUST
+          have an associated "openid.ax.type.&lt;alias&gt;" parameter.
+          The supported length for attribute aliases MUST be at least
+          32 characters.
+        </t>
+        <t>
+          Multiple attribute aliases in the "openid.ax.required" and
+          "openid.ax.if_available" directives are separated with a
+          comma, ",".
+        </t>
+        <t>
+          <list style="hanging">
+            <t hangText="openid.ax.mode">
+              <list style="empty">
+                <t>
+                  REQUIRED. Value: "fetch_request".
+                </t>
+              </list>
+            </t>
+            <t hangText="openid.ax.type.&lt;alias&gt;">
+              <list style="empty">
+                <t>
+                  The value of this parameter specifies the type identifier
+                  URI of a requested attribute. The &lt;alias&gt; will
+                  further be used to identify the attribute being exchanged.
+                </t>
+                <t>
+                  Attribute aliases MUST NOT contain newline and colon characters,
+                  as specified in the Data Formats / Protocol Messages section of
+                  <xref target="OpenID.authentication-2.0"/>; they also MUST
+                  NOT contain commas (",") and periods (".").
+                </t>
+              </list>
+            </t>
+            <t hangText="openid.ax.required">
+              <list style="empty">
+                <t>
+                  Value: an attribute alias, or a list of aliases
+                  corresponding to the URIs defined by
+                  "openid.ax.type.&lt;alias&gt;" parameters. Multiple
+                  attribute aliases are separated with a comma, ",".
+                </t>
+                <t>
+                  By requesting attributes using this field, a hint is sent
+                  to the OP about the RP's requirements for offering certain
+                  functionality and should be used by the OP to help the
+                  user decide what attributes to release. RP's requirements
+                  should not be enforced by the OP.
+                </t>
+                <t>
+                  The RP should offer, out of band of attribute exchange,
+                  an alternate method of collecting the attributes it needs,
+                  if they weren't obtained via attribute exchange.
+                </t>
+              </list>
+            </t>
+            <t hangText="openid.ax.if_available">
+              <list style="empty">
+                <t>
+                  Value: an attribute alias, or a list of aliases
+                  corresponding to the URIs defined by
+                  "openid.ax.type.&lt;alias&gt;" parameters. Multiple
+                  attribute aliases are separated with a comma, ",".
+                </t>
+                <t>
+                  Attributes requested using this field are deemed
+                  optional by the RP; the RP should be able to complete
+                  the interaction with the user even if values are not
+                  provided by the OP for the optional attributes.
+                </t>
+              </list>
+            </t>
+            <t hangText="openid.ax.count.&lt;alias&gt;">
+              <list style="empty">
+                <t>
+                  The number of values for the specified attribute
+                  alias the Relying Party wishes to receive from the OpenID
+                  Provider. If present, the value MUST be greater than zero,
+                  or the special value "unlimited" which signifies that the
+                  RP is requesting as many values as the OP has for the
+                  attribute. If absent, exactly one value is requested.
+                </t>
+                <t>
+                  OpenID Providers MAY return less than or the exact
+                  number of values speficied by this field for the
+                  associated attribute, but MUST NOT return more than
+                  the number of requested values for the attribute.
+                </t>
+              </list>
+            </t>
+            <t hangText="openid.ax.value.&lt;alias&gt;.&lt;number&gt;">
+              <list style="empty">
+                <t>
+                  Assigns a value to the attribute referred to as
+                  &lt;alias&gt;. The &lt;number&gt; uniquely identifies the
+                  index of the value, ranging from one to the value specified
+                  by "openid.ax.count.&lt;alias&gt;". This parameter format
+                  MUST be used if "openid.ax.count.&lt;alias&gt;" is sent,
+                  and the number of these parameters MUST be equal to the
+                  value specified by "openid.ax.count.&lt;alias&gt;".
+                </t>
+              </list>
+            </t>
+            <t hangText="openid.ax.update_url">
+              <list style="empty">
+                <t>
+                  If present, the OpenID Provider may re-post the fetch
+                  response message to the specified URL at some time
+                  after the initial response has been sent, using a
+                  OpenID Authentication Positive Assertion. If the
+                  OpenID Provider supports this feature it MUST return
+                  the parameter as part of the fetch response message.
+                  If it does not support this feature it may legally
+                  ignore this parameter.
+                </t>
+                <t>
+                  The value of the "openid.ax.update_url" field MUST
+                  be used as value for "openid.return_to" field of the
+                  underlying OpenID Authentication Positive Assertion
+                  of the fetch response update.
+                </t>
+                <t>
+                  The "openid.ax.update_url" value MUST also match the
+                  realm specified in the underlying OpenID message of the
+                  fetch request, if a "openid.realm" field is present.
+                  The matching rules are the ones specified in the
+                  "Realms" section of the OpenID Authentication protocol.
+                </t>
+                <t>
+                  This "unsolicited" response message would be
+                  generated in response to an attribute information
+                  update, and would contain the updated data. The OP
+                  should obtain the user's consent for resending the
+                  updated data to the RPs, as with any OpenID Positive
+                  Assertion.
+                </t>
+                <t>
+                  The relying party may include transaction data encoded
+                  in the URL such that it contains enough information to
+                  match the attribute information to the identity subject.
+                  Additional information may be encoded in the URL by the
+                  relying party as necessary.
+                </t>
+                <t>
+                  If an RP wishes to receive no further updates for an
+                  attribute, it MAY return the HTTP 404 response code to
+                  the corresponding "update_url". OPs MAY decide to
+                  stop sending updates after encountering 404 response
+                  codes.
+                </t>
+              </list>
+            </t>
+          </list>
+        </t>
+        <figure>
+          <preamble>
+            This example requests the required full name and gender
+            information, and the optional favourite dog and movie
+            information. The Relying Party is interested in up to three
+            favorite movies associated with the subject identifier.
+          </preamble>
+          <artwork>
+            <![CDATA[
+openid.ns.ax=http://openid.net/srv/ax/1.0
+openid.ax.mode=fetch_request
+openid.ax.type.fname=http://example.com/schema/fullname
+openid.ax.type.gender=http://example.com/schema/gender
+openid.ax.type.fav_dog=http://example.com/schema/favourite_dog
+openid.ax.type.fav_movie=http://example.com/schema/favourite_movie
+openid.ax.count.fav_movie=3
+openid.ax.required=fname,gender
+openid.ax.if_available=fav_dog,fav_movie
+openid.ax.update_url=http://idconsumer.com/update?transaction_id=a6b5c41
+            ]]>
+          </artwork>
+        </figure>
+      </section>
+      <section anchor="fetch_response" title="Fetch Response Format">
+        <!-- Note: do we need a failure response format as in the
+             store response? -->
+        <t>
+          The fetch response message supplies the information
+          requested in the fetch request.  Each attribute is supplied
+          with the assigned alias prefixed by "openid.ax.value." as the
+          lvalue and the attribute value as the rvalue.  Attribute
+          types are also returned in the "openid.ax.type.&lt;alias&gt;"
+          parameters. The supported length for attribute aliases MUST
+          be at least 32 characters.
+        </t>
+        <t>
+          With the exception of "openid.ax.mode", all of the following
+          request fields are OPTIONAL, though any attribute value
+          present in a "openid.ax.value.&lt;alias&gt;" parameter MUST
+          have an associated "openid.ax.type.&lt;alias&gt;" parameter.
+        </t>
+        <t>
+          If a value was not supplied or available from the user,
+          the associated "openid.ax.value.&lt;alias&gt;" field
+          SHOULD NOT be included by the OP in the fetch response.
+          An "openid.ax.count.&lt;alias&gt;" with a value of "0"
+          together with its corresponding "openid.ax.type.&lt;alias&gt;"
+          field MAY be included to explicitly state that no values
+          are provided for an attribute.
+        </t>
+        <t>
+          Validation of the received data should be performed out of band
+          of attribute exchange by the RP.
+        </t>
+        <t>
+          <list style="hanging">
+            <t hangText="openid.ax.mode">
+              <list style="empty">
+                <t>
+                  REQUIRED. Value: "fetch_response".
+                </t>
+              </list>
+            </t>
+            <t hangText="openid.ax.type.&lt;alias&gt;">
+              <list style="empty">
+                <t>
+                  The value of this parameter specifies the type identifier
+                  URI for an attribute in the fetch response.
+                  The &lt;alias&gt; will further be used to identify
+                  the attribute being exchanged.
+                </t>
+                <t>
+                  Attribute aliases MUST NOT contain newline and colon characters,
+                  as specified in the Data Formats / Protocol Messages section of
+                  <xref target="OpenID.authentication-2.0"/>; they also MUST
+                  NOT contain commas (",") and periods (".").
+                </t>
+              </list>
+            </t>
+            <t hangText="openid.ax.count.&lt;alias&gt;">
+              <list style="empty">
+                <t>
+                  The number of values returned for the attribute referred
+                  to as &lt;alias&gt;.
+                </t>
+              </list>
+            </t>
+            <t hangText="openid.ax.value.&lt;alias&gt;">
+              <list style="empty">
+                <t>
+                  Assigns a value to the attribute referred to as
+                  &lt;alias&gt;. This parameter format MUST be used if
+                  "openid.ax.count.&lt;alias&gt;" is not sent.
+                </t>
+              </list>
+            </t>
+            <t hangText="openid.ax.value.&lt;alias&gt;.&lt;number&gt;">
+              <list style="empty">
+                <t>
+                  Assigns a value to the attribute referred to as
+                  &lt;alias&gt;. This parameter format MUST be used
+                  if "openid.ax.count.&lt;alias&gt;" is sent and at least
+                  one value is provided for the associated attribute.
+                </t>
+                <t>
+                  The &lt;number&gt; uniquely identifies the index of
+                  the value, ranging from one to the value specified by
+                  "openid.ax.count.&lt;alias&gt;". The number of
+                  parameters MUST be equal to the value specified by
+                  "openid.ax.count.&lt;alias&gt;". The OP is not
+                  required to preserve the order of attribute values
+                  among fetch responses.
+                </t>
+              </list>
+            </t>
+            <t hangText="openid.ax.update_url">
+              <list style="empty">
+                <t>
+                  Returns the "update_url" parameter specified in the
+                  request. If the OpenID Provider receives an
+                  "update_url" parameter and it intends to support the
+                  attribute update feature, it MUST present the
+                  "update_url" parameter and value as part of the fetch
+                  response message.
+                </t>
+              </list>
+            </t>
+          </list>
+        </t>
+        <t>
+          A fetch response message may also be sent to the
+          "update_url" specified in <xref
+          target="fetch_request"/> in response to attribute value
+          updates on the OpenID Provider.
+        </t>
+        <figure>
+          <preamble>
+            The response to the previous request example, in which the
+            required full name information, and the optional favourite
+            dog information are supplied. Even though three movie names
+            were requested, the OP supplied only two values.
+          </preamble>
+          <artwork>
+            <![CDATA[
+openid.ns.ax=http://openid.net/srv/ax/1.0
+openid.ax.mode=fetch_response
+openid.ax.type.fname=http://example.com/schema/fullname
+openid.ax.type.gender=http://example.com/schema/gender
+openid.ax.type.fav_dog=http://example.com/schema/favourite_dog
+openid.ax.type.fav_movie=http://example.com/schema/favourite_movie
+openid.ax.value.fname=John Smith
+openid.ax.count.gender=0
+openid.ax.value.fav_dog=Spot
+openid.ax.count.fav_movie=2
+openid.ax.value.fav_movie.1=Movie1
+openid.ax.value.fav_movie.2=Movie2
+openid.ax.update_url=http://idconsumer.com/update?transaction_id=a6b5c41
+            ]]>
+          </artwork>
+        </figure>
+      </section>
+    </section>
+    <section anchor="store" title="Store Message">
+      <t>
+        The store message is used to store personal identity
+        information to the OpenID Provider; it provides the means
+        for an RP to transfer to the OP attributes that the user
+        may consider useful, such as by providing them to other RPs.
+        The supported length for attribute aliases MUST be at least
+        32 characters.
+      </t>
+      <t>
+        The manner in which the OP processes the attribute payload in a
+        store request if out of scope of this document.
+      </t>
+      <section anchor="store_request" title="Store Request Format">
+        <t>
+          With the exception of "openid.ax.mode", all of the following
+          request fields are OPTIONAL. Any alias referred to in a
+          "openid.ax.value.&lt;alias&gt;" or
+          "openid.ax.value.&lt;alias&gt;.&lt;number&gt;" parameter MUST
+          have an associated "openid.ax.type.&lt;alias&gt;" parameter.
+        </t>
+        <t>
+          <list style="hanging">
+            <t hangText="openid.ax.mode">
+              <list style="empty">
+                <t>
+                  REQUIRED. Value: "store_request".
+                </t>
+              </list>
+            </t>
+            <t hangText="openid.ax.type.&lt;alias&gt;">
+              <list style="empty">
+                <t>
+                  The value of this parameter specifies the type identifier
+                  URI for an attribute in the sore request.
+                  The &lt;alias&gt; will further be used to identify
+                  the attribute being exchanged.
+                </t>
+                <t>
+                  Attribute aliases MUST NOT contain newline and colon characters,
+                  as specified in the Data Formats / Protocol Messages section of
+                  <xref target="OpenID.authentication-2.0"/>; they also MUST
+                  NOT contain commas (",") and periods (".").
+                </t>
+              </list>
+            </t>
+            <t hangText="openid.ax.count.&lt;alias&gt;">
+              <list style="empty">
+                <t>
+                  The number of values sent for the attribute referred to
+                  as &lt;alias&gt;. If present, it MUST be greater than
+                  zero.
+                </t>
+              </list>
+            </t>
+            <t hangText="openid.ax.value.&lt;alias&gt;">
+              <list style="empty">
+                <t>
+                  Assigns a value to the attribute referred to as
+                  &lt;alias&gt;. This parameter format MUST be used if
+                  "openid.ax.count.&lt;alias&gt;" is not sent.
+                </t>
+              </list>
+            </t>
+            <t hangText="openid.ax.value.&lt;alias&gt;.&lt;number&gt;">
+              <list style="empty">
+                <t>
+                  Assigns a value to the attribute referred to as
+                  &lt;alias&gt;. The &lt;number&gt; uniquely identifies the
+                  index of the value, ranging from one to the value specified
+                  by "openid.ax.count.&lt;alias&gt;". This parameter format
+                  MUST be used if "openid.ax.count.&lt;alias&gt;" is sent,
+                  and the number of these parameters MUST be equal to the
+                  value specified by "openid.ax.count.&lt;alias&gt;".
+                </t>
+              </list>
+            </t>
+          </list>
+        </t>
+        <figure>
+          <preamble>
+          </preamble>
+          <artwork>
+            <![CDATA[
+openid.ns.ax=http://openid.net/srv/ax/1.0
+openid.ax.mode=store_request
+openid.ax.type.fname=http://example.com/schema/fullname
+openid.ax.value.fname=Bob Smith
+openid.ax.type.fav_movie=http://example.com/schema/favourite_movie
+openid.ax.count.fav_movie=2
+openid.ax.value.fav_movie.1=Movie1
+openid.ax.value.fav_movie.2=Movie2
+            ]]>
+          </artwork>
+        </figure>
+      </section>
+      <section anchor="store_response" title="Store Response Format">
+        <section title="Storage Success">
+          <t>
+            The successful store operation is indicated by the mode
+            parameter in the store response:
+          </t>
+          <t>
+            <list style="hanging">
+              <t hangText="openid.ax.mode">
+                <list style="empty">
+                  <t>
+                    REQUIRED. Value: "store_response_success".
+                  </t>
+                </list>
+              </t>
+            </list>
+          </t>
+          <figure>
+            <preamble>
+            </preamble>
+            <artwork>
+              <![CDATA[
+openid.ns.ax=http://openid.net/srv/ax/1.0
+openid.ax.mode=store_response_success
+              ]]>
+            </artwork>
+          </figure>
+        </section>
+        <section title="Storage Failure">
+          <t>
+            A storage failure response has the following format:
+          </t>
+        <t>
+          <list style="hanging">
+            <t hangText="openid.ax.mode">
+              <list style="empty">
+                <t>
+                  REQUIRED. Value: "store_response_failure".
+                </t>
+              </list>
+            </t>
+            <t hangText="openid.ax.error">
+              <list style="empty">
+                <t>
+                  OPTIONAL. Parameter describing the error condition
+                  leading to the failure response, intended to be
+                  presented to the user. The locale of the message
+                  should match the locale of the HTTP message.
+                </t>
+              </list>
+            </t>
+          </list>
+        </t>
+        <figure>
+          <preamble>
+          </preamble>
+          <artwork>
+            <![CDATA[
+openid.ns.ax=http://openid.net/srv/ax/1.0
+openid.ax.mode=store_response_failure
+openid.ax.error=General storage failure
+            ]]>
+          </artwork>
+        </figure>
+        </section>
+      </section>
+    </section>
+    <section title="Security Considerations">
+      <t>
+        OpenID Attribute Exchange is an OpenID extension, and thus uses
+        OpenID Authentication request and response messages for exchanging
+        attributes.
+      </t>
+      <t>
+        See the "Security Considerations" section of
+        <xref target="OpenID.authentication-2.0"/>.
+      </t>
+    </section>
+    <section title="Acknowledgements">
+      <t>
+        John Merrells and other contributors to the document
+        'draft-merrells-dix'. Portions of that document were
+        re-used for this one.
+      </t>
+      <t>
+        Mark Wahl advised on how to deal with issues concerning the
+        encoding of attributes.
+      </t>
+    </section>
+  </middle>
+
+  <back>
+    <references title="Normative References">
+      <reference anchor='RFC2119'>
+        <front>
+          <title abbrev='RFC Key Words'>Key words for use in RFCs to Indicate Requirement Levels</title>
+          <author initials='S.' surname='Bradner' fullname='Scott Bradner'>
+            <organization>Harvard University</organization>
+            <address>
+              <postal>
+                <street>1350 Mass. Ave.</street>
+                <street>Cambridge</street>
+                <street>MA 02138</street>
+              </postal>
+              <phone>- +1 617 495 3864</phone>
+          <email>sob@harvard.edu</email></address></author>
+          <date year='1997' month='March' />
+          <area>General</area>
+          <keyword>keyword</keyword>
+          <abstract>
+            <t>
+              In many standards track documents several words are used
+              to signify the requirements in the specification.  These
+              words are often capitalized.  This document defines
+              these words as they should be interpreted in IETF
+              documents.  Authors who follow these guidelines should
+              incorporate this phrase near the beginning of their
+              document:
+              <list>
+                <t>
+                  The key words "MUST", "MUST NOT", "REQUIRED",
+                  "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT",
+                  "RECOMMENDED", "MAY", and "OPTIONAL" in this
+                  document are to be interpreted as described in RFC
+                  2119.
+            </t></list></t>
+            <t>
+              Note that the force of these words is modified by the
+              requirement level of the document in which they are
+              used.
+            </t>
+        </abstract></front>
+        <seriesInfo name='BCP' value='14' />
+        <seriesInfo name='RFC' value='2119' />
+        <format type='TXT' octets='4723' target='ftp://ftp.isi.edu/in-notes/rfc2119.txt' />
+        <format type='HTML' octets='16553' target='http://xml.resource.org/public/rfc/html/rfc2119.html' />
+        <format type='XML' octets='5703' target='http://xml.resource.org/public/rfc/xml/rfc2119.xml' />
+      </reference>
+      <reference anchor='RFC3629'>
+        <front>
+          <title>UTF-8, a transformation format of ISO 10646</title>
+          <author initials='F.' surname='Yergeau' fullname='F. Yergeau'>
+          <organization /></author>
+          <date year='2003' month='November' />
+          <abstract>
+            <t>
+              ISO/IEC 10646-1 defines a large character set called the
+              Universal Character Set (UCS) which encompasses most of
+              the world's writing systems. The originally proposed
+              encodings of the UCS, however, were not compatible with
+              many current applications and protocols, and this has
+              led to the development of UTF-8, the object of this
+              memo. UTF-8 has the characteristic of preserving the
+              full US-ASCII range, providing compatibility with file
+              systems, parsers and other software that rely on
+              US-ASCII values but are transparent to other
+              values. This memo obsoletes and replaces RFC 2279.
+            </t>
+          </abstract>
+        </front>
+        <seriesInfo name='STD' value='63' />
+        <seriesInfo name='RFC' value='3629' />
+        <format type='TXT' octets='33856' target='ftp://ftp.isi.edu/in-notes/rfc3629.txt' />
+      </reference>
+      <reference anchor='OpenID.value-lang-1.0'>
+        <front>
+          <title>Language Tags for OpenID Values</title>
+          <author initials='M.' surname='Wahl' fullname='Mark Wahl'>
+            <organization>Informed Control Inc.</organization>
+            <address>
+              <postal>
+                <street>PO Box 90626</street>
+                <city>Austin</city>
+                <region>TX</region>
+                <code>78709</code>
+                <country>US</country>
+              </postal>
+              <email>mark.wahl@informed-control.com</email>
+            </address>
+          </author>
+          <date year='2007' month='April' />
+          <abstract>
+            <t>
+              This document defines a mechanism for transferring language
+              tags associated with UTF-8 string values in OpenID protocols,
+              in particular representing languages of attribute values in
+              the OpenID Attribute Exchange protocol.
+            </t>
+          </abstract>
+        </front>
+        <format type='HTML' octets='26205' target='http://www.ldap.com/1/spec/schema/openid-value-lang-1_0-00.html' />
+      </reference>
+      <reference anchor="OpenID.authentication-2.0">
+        <front>
+          <title>OpenID Authentication 2.0 - Final</title>
+          <author initials="" surname="specs@openid.net" fullname="specs@openid.net">
+            <organization />
+          </author>
+          <date month="August" year="2007"/>
+        </front>
+        <format type='TXT' target='http://www.openid.net/specs/openid-authentication-2_0.txt'/>
+        <format type='HTML' target='http://www.openid.net/specs/openid-authentication-2_0.html'/>
+      </reference>
+    </references>
+    <references title="Non-normative References">
+      <reference anchor="OpenID.axschema">
+        <front>
+          <title>Schema for OpenID Attribute Exchange</title>
+          <author initials="D."
+                  surname="Hardt"
+                  fullname="Dick Hardt">
+            <organization>Sxip Identity</organization>
+            <address>
+              <postal>
+                <street>798 Beatty Street</street>
+                <city>Vancouver</city>
+                <region>BC</region>
+                <code>V6B 2M1</code>
+                <country>CA</country>
+              </postal>
+              <email>dick@sxip.com</email>
+              <uri>http://sxip.com/</uri>
+            </address>
+          </author>
+          <date month="May" year="2007"/>
+        </front>
+        <format type='HTML' target='http://www.axschema.org/'/>
+      </reference>
+    </references>
+  </back>
+
+</rfc>
+
