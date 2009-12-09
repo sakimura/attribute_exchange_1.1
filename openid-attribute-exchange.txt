@@ -11,7 +11,7 @@ Draft 01                                                        D. Hardt
                                                         December 9, 2009
 
 
-                OpenID Attribute Exchange 1.1 - Draft 01
+                OpenID Attribute Exchange 1.1 - Draft 02
 
 
 
@@ -54,7 +54,7 @@ Draft 01                                                        D. Hardt
 
 Hardt, et al.                                                   [Page 1]
 
-                OpenID Attribute Exchange 1.1 - Draft 01   December 2009
+                OpenID Attribute Exchange 1.1 - Draft 02   December 2009
 
 
 Abstract
@@ -110,7 +110,7 @@ Table of Contents
 
 Hardt, et al.                                                   [Page 2]
 
-                OpenID Attribute Exchange 1.1 - Draft 01   December 2009
+                OpenID Attribute Exchange 1.1 - Draft 02   December 2009
 
 
 1.  Terminology
@@ -166,7 +166,7 @@ Hardt, et al.                                                   [Page 2]
 
 Hardt, et al.                                                   [Page 3]
 
-                OpenID Attribute Exchange 1.1 - Draft 01   December 2009
+                OpenID Attribute Exchange 1.1 - Draft 02   December 2009
 
 
 2.  Overview
@@ -222,7 +222,7 @@ Hardt, et al.                                                   [Page 3]
 
 Hardt, et al.                                                   [Page 4]
 
-                OpenID Attribute Exchange 1.1 - Draft 01   December 2009
+                OpenID Attribute Exchange 1.1 - Draft 02   December 2009
 
 
 3.  Information Model
@@ -278,7 +278,7 @@ Hardt, et al.                                                   [Page 4]
 
 Hardt, et al.                                                   [Page 5]
 
-                OpenID Attribute Exchange 1.1 - Draft 01   December 2009
+                OpenID Attribute Exchange 1.1 - Draft 02   December 2009
 
 
    [OpenID.authentication-2.0] protocol, attribute values MUST NOT
@@ -334,7 +334,7 @@ Hardt, et al.                                                   [Page 5]
 
 Hardt, et al.                                                   [Page 6]
 
-                OpenID Attribute Exchange 1.1 - Draft 01   December 2009
+                OpenID Attribute Exchange 1.1 - Draft 02   December 2009
 
 
 4.  Discovery
@@ -390,7 +390,7 @@ Hardt, et al.                                                   [Page 6]
 
 Hardt, et al.                                                   [Page 7]
 
-                OpenID Attribute Exchange 1.1 - Draft 01   December 2009
+                OpenID Attribute Exchange 1.1 - Draft 02   December 2009
 
 
 5.  Fetch Message
@@ -446,7 +446,7 @@ Hardt, et al.                                                   [Page 7]
 
 Hardt, et al.                                                   [Page 8]
 
-                OpenID Attribute Exchange 1.1 - Draft 01   December 2009
+                OpenID Attribute Exchange 1.1 - Draft 02   December 2009
 
 
    openid.ax.if_available
@@ -502,7 +502,7 @@ Hardt, et al.                                                   [Page 8]
 
 Hardt, et al.                                                   [Page 9]
 
-                OpenID Attribute Exchange 1.1 - Draft 01   December 2009
+                OpenID Attribute Exchange 1.1 - Draft 02   December 2009
 
 
          The "openid.ax.update_url" value MUST also match the realm
@@ -558,7 +558,7 @@ openid.ax.update_url=http://idconsumer.com/update?transaction_id=a6b5c41
 
 Hardt, et al.                                                  [Page 10]
 
-                OpenID Attribute Exchange 1.1 - Draft 01   December 2009
+                OpenID Attribute Exchange 1.1 - Draft 02   December 2009
 
 
    attribute aliases MUST be at least 32 characters.
@@ -614,7 +614,7 @@ Hardt, et al.                                                  [Page 10]
 
 Hardt, et al.                                                  [Page 11]
 
-                OpenID Attribute Exchange 1.1 - Draft 01   December 2009
+                OpenID Attribute Exchange 1.1 - Draft 02   December 2009
 
 
          attribute.
@@ -670,7 +670,7 @@ openid.ax.update_url=http://idconsumer.com/update?transaction_id=a6b5c41
 
 Hardt, et al.                                                  [Page 12]
 
-                OpenID Attribute Exchange 1.1 - Draft 01   December 2009
+                OpenID Attribute Exchange 1.1 - Draft 02   December 2009
 
 
 6.  Store Message
@@ -726,7 +726,7 @@ Hardt, et al.                                                  [Page 12]
 
 Hardt, et al.                                                  [Page 13]
 
-                OpenID Attribute Exchange 1.1 - Draft 01   December 2009
+                OpenID Attribute Exchange 1.1 - Draft 02   December 2009
 
 
    openid.ax.value.<alias>.<number>
@@ -782,7 +782,7 @@ Hardt, et al.                                                  [Page 13]
 
 Hardt, et al.                                                  [Page 14]
 
-                OpenID Attribute Exchange 1.1 - Draft 01   December 2009
+                OpenID Attribute Exchange 1.1 - Draft 02   December 2009
 
 
    openid.ax.error
@@ -838,7 +838,7 @@ Hardt, et al.                                                  [Page 14]
 
 Hardt, et al.                                                  [Page 15]
 
-                OpenID Attribute Exchange 1.1 - Draft 01   December 2009
+                OpenID Attribute Exchange 1.1 - Draft 02   December 2009
 
 
 7.  Default Schemas
@@ -894,7 +894,7 @@ Hardt, et al.                                                  [Page 15]
 
 Hardt, et al.                                                  [Page 16]
 
-                OpenID Attribute Exchange 1.1 - Draft 01   December 2009
+                OpenID Attribute Exchange 1.1 - Draft 02   December 2009
 
 
    http://axschema.org/person/gender
@@ -950,7 +950,7 @@ Hardt, et al.                                                  [Page 16]
 
 Hardt, et al.                                                  [Page 17]
 
-                OpenID Attribute Exchange 1.1 - Draft 01   December 2009
+                OpenID Attribute Exchange 1.1 - Draft 02   December 2009
 
 
 8.  Security Considerations
@@ -1006,7 +1006,7 @@ Hardt, et al.                                                  [Page 17]
 
 Hardt, et al.                                                  [Page 18]
 
-                OpenID Attribute Exchange 1.1 - Draft 01   December 2009
+                OpenID Attribute Exchange 1.1 - Draft 02   December 2009
 
 
 9.  Acknowledgements
@@ -1062,7 +1062,7 @@ Hardt, et al.                                                  [Page 18]
 
 Hardt, et al.                                                  [Page 19]
 
-                OpenID Attribute Exchange 1.1 - Draft 01   December 2009
+                OpenID Attribute Exchange 1.1 - Draft 02   December 2009
 
 
 10.  References
@@ -1118,7 +1118,7 @@ Hardt, et al.                                                  [Page 19]
 
 Hardt, et al.                                                  [Page 20]
 
-                OpenID Attribute Exchange 1.1 - Draft 01   December 2009
+                OpenID Attribute Exchange 1.1 - Draft 02   December 2009
 
 
 URIs
@@ -1174,7 +1174,7 @@ URIs
 
 Hardt, et al.                                                  [Page 21]
 
-                OpenID Attribute Exchange 1.1 - Draft 01   December 2009
+                OpenID Attribute Exchange 1.1 - Draft 02   December 2009
 
 
 Authors' Addresses
